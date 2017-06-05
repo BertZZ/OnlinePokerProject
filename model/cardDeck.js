@@ -16,7 +16,7 @@ CardDeck.prototype.shuffleDeck = function() {
   this.deck = tempDeck;
 }
 
-CardDeck.prototype.checkDeck = function(array = this.deck) {
+CardDeck.prototype.checkDeck = function(array) {
   var valuesSoFar = Object.create(null);
 
   for (var i = 0; i < array.length; ++i) {

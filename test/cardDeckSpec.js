@@ -22,7 +22,7 @@ describe('CardDeck', function() {
 
     it('should contian 52 unique cards', function() {
       cardDeck.shuffleDeck();
-      expect(cardDeck.checkDeck()).to.equal(true);
+      expect(cardDeck.checkDeck(cardDeck.deck)).to.equal(true);
     });
   });
 
