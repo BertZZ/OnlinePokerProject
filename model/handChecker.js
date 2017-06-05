@@ -1,6 +1,10 @@
 function HandChecker() {
 };
 
+HandChecker.prototype.fullHouse = function(cards) {
+  if (this.modeAndFrequency(cards)[1].includes(3) && this.modeAndFrequency(cards)[1].includes(2)) return true
+}
+
 HandChecker.prototype.threeOfAKind = function(cards) {
   if (this.modeAndFrequency(cards)[1].includes(3)) return true
 }

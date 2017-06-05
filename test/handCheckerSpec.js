@@ -27,4 +27,9 @@ describe('HandChecker', function() {
     expect(handChecker.threeOfAKind(cards)).to.equal(true);
   });
 
+  it('returns true for full house', function() {
+    cards = [6,6,5,5,5]
+    expect(handChecker.fullHouse(cards)).to.equal(true);
+  });
+
 });
