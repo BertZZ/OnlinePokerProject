@@ -1,0 +1,23 @@
+{
+  "name": "onlinepoker",
+  "version": "1.0.0",
+  "description": "online poker game",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BertZZ/OnlinePokerProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BertZZ/OnlinePokerProject/issues"
+  },
+  "homepage": "https://github.com/BertZZ/OnlinePokerProject#readme",
+  "dependencies": {
+    "chai": "^4.0.1",
+    "mocha": "^3.4.2"
+  }
+}
