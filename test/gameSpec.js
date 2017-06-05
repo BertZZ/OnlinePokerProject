@@ -2,7 +2,7 @@ var should = require('should');
 var assert = require('assert');
 var expect = require('chai').expect
 
-const Game = require('../game.js')
+const Game = require('../model/game.js')
 
 describe("Game", function() {
   it('should exist', function(done) {
