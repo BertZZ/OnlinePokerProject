@@ -38,4 +38,31 @@ describe("Game", function() {
     expect(game.hands[3]).to.be.undefined
     done()
   })
+
+  it('should deal 3 cards to the communal cards', function(done){
+    var game = new Game(3)
+    game.deal();
+    game.flop();
+    expect(game.pool).to.deep.equal([7,8,9])
+    done()
+  })
+
+  it('should deal 1 card on the turn', function(done){
+    var game = new Game(3)
+    game.deal();
+    game.flop();
+    game.turn();
+    expect(game.pool).to.deep.equal([7,8,9,10])
+    done()
+  })
+
+  it('should deal 1 card on the river', function(done){
+    var game = new Game(3)
+    game.deal();
+    game.flop();
+    game.turn();
+    game.river();
+    expect(game.pool).to.deep.equal([7,8,9,10,11])
+    done()
+  })
 })
