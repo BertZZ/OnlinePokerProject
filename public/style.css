@@ -1,3 +1,15 @@
 h1 {
   color: red;
 }
+
+.cards{
+	background: url(images/carddeck.png);
+	width: 204px;
+	height: 282px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin: 10px;
+}
+
+#three_d{ background-position: 0px 0px; }
