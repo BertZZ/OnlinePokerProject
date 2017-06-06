@@ -32,4 +32,9 @@ describe('HandChecker', function() {
     expect(handChecker.fullHouse(cards)).to.equal(true);
   });
 
+  it('returns true for full house', function() {
+    cards = ['As', '2s', 'Js', '6s', '7s']
+    expect(handChecker.flush(cards)).to.equal(true)
+  })
+
 });
