@@ -1,0 +1,62 @@
+/*Diamonds*/
+#ace_d{ background-position: -808px -1395px; }
+#two_d{ background-position: -1010px -1674px; }
+#three_d{ background-position: 0px 0px; }
+#four_d{ background-position: -202px -279px; }
+#five_d{ background-position: -404px -558px; }
+#six_d{ background-position: -606px -837px; }
+#seven_d{ background-position: -808px -1116px; }
+#eight_d{ background-position: -1010px -1395px; }
+#nine_d{ background-position: -1212px -1674px; }
+#ten_d{ background-position: -202px 0px; }
+#jack_d{ background-position: -404px -279px; }
+#queen_d{ background-position: -606px -558px; }
+#king_d{ background-position: -808px -837px; }
+
+/*Hearts*/
+#ace_h{ background-position: -1010px -1116px; }
+#two_h{ background-position: -1212px -1395px; }
+#three_h{ background-position: -1414px -1674px; }
+#four_h{ background-position: -404px 0px; }
+#five_h{ background-position: -606px -279px; }
+#six_h{ background-position: -808px -558px; }
+#seven_h{ background-position: -1010px -837px; }
+#eight_h{ background-position: -1212px -1116px; }
+#nine_h{ background-position: -1414px -1395px; }
+#ten_h{ background-position: -1616px -1674px; }
+#jack_h{ background-position: -606px 0px; }
+#queen_h{ background-position: -808px -279px; }
+#king_h{ background-position: -1010px -558px; }
+
+/*Spades*/
+#ace_s{ background-position: -1212px -837px; }
+#two_s{ background-position: -1414px -1116px; }
+#three_s{ background-position: -1616px -1395px; }
+#four_s{ background-position: -1818px -1674px; }
+#five_s{ background-position: -808px 0px; }
+#six_s{ background-position: -1010px -279px; }
+#seven_s{ background-position: -1212px -558px; }
+#eight_s{ background-position: -1414px -837px; }
+#nine_s{ background-position: -1616px -1116px; }
+#ten_s{ background-position: -1818px -1395px; }
+#jack_s{ background-position: -1010px 0px; }
+#queen_s{ background-position: -1212px -279px; }
+#king_s{ background-position: -1414px -558px; }
+
+/*Clubs*/
+#ace_c{ background-position: 0px -837px; }
+#two_c{ background-position: -202px -1116px; }
+#three_c{ background-position: -404px -1395px; }
+#four_c{ background-position: -606px -1674px; }
+#five_c{ background-position: 0px -558px; }
+#six_c{ background-position: -202px -837px; }
+#seven_c{ background-position: -404px -1116px; }
+#eight_c{ background-position: -606px -1395px; }
+#nine_c{ background-position: -808px -1674px; }
+#ten_c{ background-position: 0px -279px; }
+#jack_c{ background-position: -202px -558px; }
+#queen_c{ background-position: -404px -837px; }
+#king_c{ background-position: -606px -1116px; }
+
+/*Card Back*/
+#back{ background-position: 0px -1116px; }
