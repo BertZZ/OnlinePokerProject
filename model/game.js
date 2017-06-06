@@ -1,4 +1,5 @@
 var CardDeck = require('./cardDeck.js');
+var Player = require('./player.js');
 
 function Game(players) {
   this.players = players
@@ -36,4 +37,5 @@ Game.prototype.river = function(){
   var card = this.cardDeck.deck.shift()
   this.pool.push(card)
 }
+
 module.exports = Game;
