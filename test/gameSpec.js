@@ -1,7 +1,6 @@
 var should = require('should');
 var assert = require('assert');
 var expect = require('chai').expect
-
 const Game = require('../model/game.js')
 
 describe("Game", function() {
@@ -63,6 +62,16 @@ describe("Game", function() {
     game.turn();
     game.river();
     expect(game.pool).to.deep.equal([7,8,9,10,11])
+    done()
+  })
+
+  it('should be able to shuffle the deck', function(done){
+    var game = new Game(3)
+    var game2 = new Game(3)
+    var orderedDeck = game.cardDeck
+    var shuffledDeck = game2.cardDeck
+    shuffledDeck.shuffleDeck()
+    expect(shuffledDeck).to.not.equal(orderedDeck)
     done()
   })
 })
