@@ -12,7 +12,7 @@ describe("Game", function() {
 
   it('should set number of players', function(done) {
     var game = new Game(3)
-    expect(game.players).to.equal(3)
+    expect(game.numberOfPlayers).to.equal(3)
     done()
   })
 
@@ -25,16 +25,15 @@ describe("Game", function() {
   it('should deal 2 cards from the top of the deck to each player', function(done){
     var game = new Game(3)
     game.deal();
-    expect(game.hands[0]).to.be.an('array').that.is.not.empty;
-    expect(game.hands[0]).to.have.lengthOf(2);
-    expect(game.hands[0]).to.deep.equal(['As','Ac'])
-    expect(game.hands[1]).to.be.an('array').that.is.not.empty;
-    expect(game.hands[1]).to.have.lengthOf(2);
-    expect(game.hands[1]).to.deep.equal(['Ah','Ks'])
-    expect(game.hands[2]).to.be.an('array').that.is.not.empty;
-    expect(game.hands[2]).to.have.lengthOf(2);
-    expect(game.hands[2]).to.deep.equal(['Ad','Kh'])
-    expect(game.hands[3]).to.be.undefined
+    expect(game.players[0].hand).to.be.an('array').that.is.not.empty;
+    expect(game.players[0].hand).to.have.lengthOf(2);
+    expect(game.players[0].hand).to.deep.equal(['As','Ac'])
+    expect(game.players[1].hand).to.be.an('array').that.is.not.empty;
+    expect(game.players[1].hand).to.have.lengthOf(2);
+    expect(game.players[1].hand).to.deep.equal(['Ah','Ks'])
+    expect(game.players[2].hand).to.be.an('array').that.is.not.empty;
+    expect(game.players[2].hand).to.have.lengthOf(2);
+    expect(game.players[2].hand).to.deep.equal(['Ad','Kh'])
     done()
   })
 
@@ -72,6 +71,12 @@ describe("Game", function() {
     var shuffledDeck = game2.cardDeck
     shuffledDeck.shuffleDeck()
     expect(shuffledDeck).to.not.equal(orderedDeck)
+    done()
+  })
+  it('should create the number of players that have been selected to play the game', function(done){
+    var game = new Game(3)
+    expect(game.players).to.be.an('array').that.is.not.empty;
+    expect(game.players).to.have.lengthOf(3);
     done()
   })
 })

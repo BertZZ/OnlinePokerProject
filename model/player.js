@@ -1,5 +1,5 @@
 function Player(){
-  this.hand = null
+  this.hand = []
   this.money = 0
 }
 

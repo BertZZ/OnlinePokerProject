@@ -19,6 +19,6 @@ describe("Player", function() {
 
   it('should have a hand that is an empty', function() {
     var player1 = new Player()
-    expect(player1.hand).to.be.null
+    expect(player1.hand).to.be.an('array').that.is.empty
   })
 })
