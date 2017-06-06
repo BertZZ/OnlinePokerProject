@@ -27,13 +27,13 @@ describe("Game", function() {
     game.deal();
     expect(game.hands[0]).to.be.an('array').that.is.not.empty;
     expect(game.hands[0]).to.have.lengthOf(2);
-    expect(game.hands[0]).to.deep.equal([1,4])
+    expect(game.hands[0]).to.deep.equal(['As','Ac'])
     expect(game.hands[1]).to.be.an('array').that.is.not.empty;
     expect(game.hands[1]).to.have.lengthOf(2);
-    expect(game.hands[1]).to.deep.equal([2,5])
+    expect(game.hands[1]).to.deep.equal(['Ah','Ks'])
     expect(game.hands[2]).to.be.an('array').that.is.not.empty;
     expect(game.hands[2]).to.have.lengthOf(2);
-    expect(game.hands[2]).to.deep.equal([3,6])
+    expect(game.hands[2]).to.deep.equal(['Ad','Kh'])
     expect(game.hands[3]).to.be.undefined
     done()
   })
@@ -42,7 +42,7 @@ describe("Game", function() {
     var game = new Game(3)
     game.deal();
     game.flop();
-    expect(game.pool).to.deep.equal([7,8,9])
+    expect(game.pool).to.deep.equal([ 'Kd', 'Kc', 'Qs' ])
     done()
   })
 
@@ -51,7 +51,7 @@ describe("Game", function() {
     game.deal();
     game.flop();
     game.turn();
-    expect(game.pool).to.deep.equal([7,8,9,10])
+    expect(game.pool).to.deep.equal([ 'Kd', 'Kc', 'Qs', 'Qh' ])
     done()
   })
 
@@ -61,7 +61,7 @@ describe("Game", function() {
     game.flop();
     game.turn();
     game.river();
-    expect(game.pool).to.deep.equal([7,8,9,10,11])
+    expect(game.pool).to.deep.equal([ 'Kd', 'Kc', 'Qs', 'Qh', 'Qd' ])
     done()
   })
 
