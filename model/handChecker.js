@@ -1,8 +1,17 @@
 function HandChecker() {
 };
 
+HandChecker.prototype.poker = function(cards) {
+  if (this.modeAndFrequency(cards)[1].includes(4)) return true
+}
+
 HandChecker.prototype.flush = function(cards) {
   if (this.modeAndFrequency(Object.values(this.valueSuitSplitter(cards)))[1][0] >= 5) return true
+}
+
+HandChecker.prototype.straight = function(cards) {
+  var straightCards = "AKQJT98765432A5432"
+  if (straightCards.includes(this.sortCards(cards).join(''))) return true
 }
 
 HandChecker.prototype.fullHouse = function(cards) {
@@ -45,7 +54,14 @@ HandChecker.prototype.valueSuitSplitter = function(cards) {
   return cardsHash
 }
 
-Object.values = obj => Object.keys(obj).map(key => obj[key]);
+HandChecker.prototype.sortCards = function(cards) {
+  var cardsOrder = [ 'A', 'K', 'Q', 'J', 'T', 9, 8, 7, 6, 5, 4, 3, 2 ];
 
+  return cards.sort(function(a, b) {
+    return cardsOrder.indexOf(a) - cardsOrder.indexOf(b);
+  });
+};
+
+Object.values = obj => Object.keys(obj).map(key => obj[key]);
 
 module.exports = HandChecker;

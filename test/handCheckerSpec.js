@@ -37,4 +37,14 @@ describe('HandChecker', function() {
     expect(handChecker.flush(cards)).to.equal(true)
   })
 
+  it('returns true for a straight', function() {
+    cards = [ 'A', 2, 3, 4, 5 ]
+    expect(handChecker.straight(cards)).to.equal(true)
+  });
+
+  it('returns true for a poker', function() {
+    cards = [ 'A', 'A', 'A', 'A', 'K']
+    expect(handChecker.poker(cards)).to.equal(true)
+  })
+
 });
