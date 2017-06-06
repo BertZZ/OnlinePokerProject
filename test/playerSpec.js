@@ -17,7 +17,7 @@ describe("Player", function() {
   })
 
 
-  it('should have a hand that is an empty array', function() {
+  it('should have a hand that is an empty', function() {
     var player1 = new Player()
     expect(player1.hand).to.be.null
   })
