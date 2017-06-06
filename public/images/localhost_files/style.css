@@ -1,0 +1,23 @@
+h1 {
+  color: red;
+}
+
+.cards-display {
+  width: 10px;
+  height: 10%;
+}
+
+.cards{
+	background: url(images/carddeck.png);
+	width: 204px;
+	height: 282px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	margin: 10px;
+}
+
+#three_d{ background-position: 0px 0px; }
+#ten_d{ background-position: -202px 0px; }
+#four_h{ background-position: -404px 0px; }
+#joker_h{ background-position: -606px 0px; }

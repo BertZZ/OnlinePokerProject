@@ -1,0 +1,44 @@
+h1 {
+  color: red;
+}
+
+.cards {
+    background: url(images/carddeck.png);
+    width: 204px;
+    height: 282px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+@media (min-width:761px){
+  .cards {
+      background: url(images/carddeck.png);
+      width: 204px;
+      height: 282px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin: 10px;
+      zoom: 0.5;
+  }
+}
+
+@media (max-width:760px){
+  .cards {
+      background: url(images/carddeck.png);
+      width: 204px;
+      height: 282px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin: 10px;
+      zoom: 0.35;
+  }
+}
+
+#three_d{ background-position: 0px 0px; }
+#ten_d{ background-position: -202px 0px; }
+#four_h{ background-position: -404px 0px; }
+#joker_h{ background-position: -606px 0px; }

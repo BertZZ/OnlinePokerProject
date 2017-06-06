@@ -18,6 +18,7 @@
   "homepage": "https://github.com/BertZZ/OnlinePokerProject#readme",
   "dependencies": {
     "chai": "^4.0.1",
+    "express": "^4.15.3",
     "mocha": "^3.4.2"
   }
 }
