@@ -1,34 +1,27 @@
 const express = require('express');
 const app = express();
-
+var assert = require('assert');
 // force the test environment to 'test'
 process.env.NODE_ENV = 'test';
+
 var Browser = require('zombie');
+Browser.localhost('example.com', 3000);
 // get the application server module
-
-
 // var app = require('../app.js');
 
-describe('contact page', function() {
-  before(function() {
-    this.server = app.listen(4000)
-    this.browser = new Browser({ site: 'http://localhost:4000' });
-  });
+describe('home page', function() {
+
+ const browser = new Browser();
 
   before(function(done) {
-    this.browser.visit('/', done);
+    return browser.visit('/', done);
   });
-
-  describe('contact page', function() {
-    it('should show contact a form');
-    it('should refuse empty submissions');
-    it('should refuse partial submissions');
-    it('should keep values on partial submissions');
-    it('should refuse invalid emails');
-    it('should accept complete submissions');
-  });
-
-  after(function(done) {
-    this.server.close(done);
-  });
+   describe('loading page', function() {
+    it('should be successful', function() {
+     browser.assert.success();
+   });
+   it('should have a tile', function() {
+      browser.assert.text('h1', 'Poker');
+    });
+ });
 });
