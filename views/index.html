@@ -1,39 +1,22 @@
 <!DOCTYPE HTML>
-<hmtl data-ng-app="">
+<hmtl data-ng-app="ViewController">
   <head>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <link href="deck.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <!-- <script src="/angular.js"></script> -->
+    <script src="angular.js"></script>
   </head>
 
-  <body data-ng-init="cards=['ace_s', 'two_s', 'king_h', 'jack_d', 'queen_h']">
+  <body>
     <div class="text">
       <h1>Card Test Page</h1>
     </div>
 
-    <div>
-       <label>Name:</label>
-       <input type = "text" data-ng-model = "yourName" placeholder = "Enter a name here">
-       <hr />
-       <h1>Hello {{yourName}}! {{console.log(cards)}}</h1>
-    </div>
-
-
-    <div data-ng-controller="CardRenderer as render">
-
-        <div data-ng-repeat="card in render.cards">
-
+    <div data-ng-controller="CardRenderer">
+        <div data-ng-repeat="card in cards">
           <img id="{{ card }}" class="cards"/>
         </div>
-
     </div>
-<!--
-    <script>
-      function CardSender($scope){
-        $scope.cards = ['ace_s', 'two_s', 'king_h', 'jack_d', 'queen_h']
-      }
-    </script> -->
 
   </body>
 </hmtl>
