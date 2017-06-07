@@ -9,6 +9,8 @@ function Game(players) {
   this.players = []
   for (i = 0; i < this.numberOfPlayers; i++) {
     var player = new Player
+    var number = i + 1
+    player.playerId = "Player " + number
     this.players.push(player)
   }
 }

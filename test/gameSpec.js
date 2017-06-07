@@ -77,6 +77,8 @@ describe("Game", function() {
     var game = new Game(3)
     expect(game.players).to.be.an('array').that.is.not.empty;
     expect(game.players).to.have.lengthOf(3);
+    expect(game.players[0].playerId).to.equal("Player 1")
+    expect(game.players[1].playerId).to.equal("Player 2")
     done()
   })
 })
