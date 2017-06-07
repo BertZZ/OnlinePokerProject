@@ -5,10 +5,6 @@
     <link href="deck.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="angular.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> -->
   </head>
 
   <body>
@@ -16,14 +12,14 @@
       <h1>Poker</h1>
     </div>
 
-    <!-- <div data-ng-controller="PlayerRender">
-          <img id="{{ dealCommunal.communalCards[0] }}" class="cards"/>
-          {{ console.log(dealCommunal.communalCards[0]) }}
-          <img id="{{ dealCommunal.communalCards[1] }}" class="cards"/>
-          <img id="{{ dealCommunal.communalCards[2] }}" class="cards"/>
-          <img id="{{ dealCommunal.communalCards[3] }}" class="cards"/>
-          <img id="{{ dealCommunal.communalCards[4] }}" class="cards"/>
-    </div> -->
+    <div data-ng-controller="PlayerRender">
+      <button ng-click="dealCommunal()">DEAL COMMUNAL</button>
+          <img id="{{ communalCards[0] }}" class="cards"/>
+          <img id="{{ communalCards[1] }}" class="cards"/>
+          <img id="{{ communalCards[2] }}" class="cards"/>
+          <img id="{{ communalCards[3] }}" class="cards"/>
+          <img id="{{ communalCards[4] }}" class="cards"/>
+    </div>
 
     <div class="player" data-ng-controller="PlayerRender">
       <button ng-click="dealPlayer()">DEAL</button>
