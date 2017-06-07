@@ -90,28 +90,14 @@ HandChecker.prototype.flush = function() {
 }
 
 HandChecker.prototype.straight = function() {
-  var straightCards = "AKQJT98765432A5432"
-  var possibleStraight = this.sortedCardValues.filter(unique).join('')
-  var possibleSmallStraight = possibleStraight[0] + possibleStraight.substr(possibleStraight.length - 4, 4)
-  for (var i = 0; i < possibleStraight.length - 4; i++) {
-    if (straightCards.includes(possibleStraight.substr(i, 5))) return getStraight(possibleStraight.substr(i, 5), this.sortedHand)
-  }
-
-  if (straightCards.includes(possibleSmallStraight)) return getStraight(possibleSmallStraight, this.sortedHand)
-
-  function unique(value, index, self) {
-      return self.indexOf(value) === index;
-  }
-
-  function getStraight(string, sh) {
-    var straight = [];
+    var straightCards = [];
+    var straightString = this.straightString
     for (k = 0; k < 5; k++) {
-      straight.push(sh.find(function(element) {
-        return (element[0] == string[k])
+      straightCards.push(this.sortedHand.find(function(element) {
+        return (element[0] == straightString[k])
       }))
     }
-    return straight
-  }
+    return { straight: straightCards }
 }
 
 HandChecker.prototype.isPoker = function() {
@@ -143,7 +129,22 @@ HandChecker.prototype.isFlush = function() {
 }
 
 HandChecker.prototype.isStraight = function() {
+  var straightCards = "AKQJT98765432A5432"
+  var possibleStraight = this.sortedCardValues.filter(unique).join('')
+  var possibleSmallStraight = possibleStraight[0] + possibleStraight.substr(possibleStraight.length - 4, 4)
+  for (var i = 0; i < possibleStraight.length - 4; i++) {
+    if (straightCards.includes(possibleStraight.substr(i, 5))) { this.straightString = possibleStraight;
+      return true
+    }
+  }
 
+  if (straightCards.includes(possibleSmallStraight)) { this.straightString = possibleSmallStraight;
+    return true
+  }
+
+  function unique(value, index, self) {
+      return self.indexOf(value) === index;
+  }
 }
 
 HandChecker.prototype.isThreeOfAKind = function() {
@@ -176,6 +177,7 @@ HandChecker.prototype.bestHand = function() {
   if (this.isPoker()) return this.poker()
   if (this.isFullHouse()) return this.fullHouse()
   if (this.isFlush()) return this.flush()
+  if (this.isStraight()) return this.straight()
   if (this.isThreeOfAKind()) return this.threeOfAKind()
   if (this.isTwoPair()) return this.twoPair()
   if (this.isPair()) return this.pair()

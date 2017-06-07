@@ -38,7 +38,7 @@ describe('HandChecker', function() {
   it('returns a straight', function() {
     cards = [ 'As', '2s', 'Tc', '4h', '5d', '3d', 'Td' ]
     handChecker = new HandChecker(cards)
-    expect(handChecker.straight()).to.deep.equal(['As', '5d', '4h', '3d', '2s'])
+    expect(handChecker.bestHand()).to.deep.equal({ straight: ['As', '5d', '4h', '3d', '2s'] } )
   });
 
   it('returns a poker', function() {
