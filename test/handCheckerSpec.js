@@ -1,7 +1,7 @@
 var assert = require('assert');
 var expect = require('chai').expect;
 
-const HandChecker = require('../model/HandChecker.js')
+const HandChecker = require('../model/test.js')
 
 describe('HandChecker', function() {
 
@@ -14,7 +14,7 @@ describe('HandChecker', function() {
   it('returns two pair', function() {
     cards = ['3s','3h','5d','5c','7d', 'Jc', 'Jh']
     handChecker = new HandChecker(cards)
-    expect(handChecker.twoPair()).to.deep.equal(['Jh', 'Jc', '7d', '5d', '5c']);
+    expect(handChecker.twoPair()).to.deep.equal(['Jh', 'Jc', '5d', '5c', '7d']);
   });
 
   it('returns three of a kind', function() {
@@ -24,9 +24,9 @@ describe('HandChecker', function() {
   });
 
   it('returns a full house', function() {
-    cards = ['6s','6c','5s','5c','5h', '7d', '9h']
+    cards = ['6s','7c','5s','5c','5h', '7d', '7h']
     handChecker = new HandChecker(cards)
-    expect(handChecker.fullHouse()).to.equal(true);
+    expect(handChecker.fullHouse()).to.deep.equal(['7h', '7d', '7c', '5s', '5h']);
   });
 
   it('returns a flush', function() {
@@ -36,9 +36,9 @@ describe('HandChecker', function() {
   })
 
   it('returns a straight', function() {
-    cards = [ 'As', '2s', 'Jc', '4h', '5d', '3d', 'Td' ]
+    cards = [ 'As', '2s', 'Tc', '4h', '5d', '3d', 'Td' ]
     handChecker = new HandChecker(cards)
-    expect(handChecker.straight()).to.equal(true)
+    expect(handChecker.straight()).to.deep.equal(['As', '5d', '4h', '3d', '2s'])
   });
 
   it('returns a poker', function() {

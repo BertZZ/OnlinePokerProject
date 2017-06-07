@@ -48,7 +48,6 @@ function HandChecker(hand) {
         if ( handToCheckFreq[i][n] !== prev ) {
           freq.push(1);
         } else {
-          // console.log(freq)
           freq[freq.length-1]++;
           freq.push(freq[freq.length-1]);
               if (freq[freq.length-1] >= 3) {freq[freq.length-3]++}
@@ -59,80 +58,90 @@ function HandChecker(hand) {
           }
         prev = handToCheckFreq[i][n];
       }
-      return freq;
+      array = [];
+      for (k = 0; k < 7; k++) {
+        array.push([handToCheckFreq[k],freq[k],k])
+      }
+      array.sort(function(a, b) {
+        if (a[1] > b[1]) {
+          return -1;
+        }
+        if (a[1] < b[1]) {
+          return 1;
+        }
+          return 0;
+        });
+    var array2 = [[],[],[]]
+    for(m = 0; m < 7; m++) {
+      array2[0].push(array[m][1])
+      array2[1].push(array[m][2])
+      array2[2].push(array[m][0])
     }
+    return array2
+  }
 };
 
 HandChecker.prototype.poker = function() {
-  if (this.cardsFrequency.includes(4)) return this.bestHand(4)
+  if (this.cardsFrequency[0][0] == 4) return this.cardsFrequency[2].splice(0, 5)
 }
 
 HandChecker.prototype.flush = function() {
-  if (this.suitFrequency.some(x => x >= 5)) return this.sortedHandBySuit.splice([this.suitFrequency.indexOf(5)], 5)
+  if (this.suitFrequency[0][0] >= 5) return this.suitFrequency[2].splice(0, 5)
 }
 
 HandChecker.prototype.straight = function() {
   var straightCards = "AKQJT98765432A5432"
-  var possibeStraight = this.sortedCardValues.filter(unique).join('')
-  for (var i = 0; i < possibeStraight.length - 4; i++) {
-    if (straightCards.includes(possibeStraight.substr(i, 5))) return true
+  var possibleStraight = this.sortedCardValues.filter(unique).join('')
+  var possibleSmallStraight = possibleStraight[0] + possibleStraight.substr(possibleStraight.length - 4, 4)
+  for (var i = 0; i < possibleStraight.length - 4; i++) {
+    if (straightCards.includes(possibleStraight.substr(i, 5))) return getStraight(possibleStraight.substr(i, 5), this.sortedHand)
   }
 
-  if (straightCards.includes(possibeStraight[0] + possibeStraight.substr(possibeStraight.length - 4, 4))) return true
+  if (straightCards.includes(possibleSmallStraight)) return getStraight(possibleSmallStraight, this.sortedHand)
 
   function unique(value, index, self) {
       return self.indexOf(value) === index;
   }
+
+  function getStraight(string, sh) {
+    var straight = [];
+    for (k = 0; k < 5; k++) {
+      straight.push(sh.find(function(element) {
+        return (element[0] == string[k])
+      }))
+    }
+    return straight
+  }
 }
 
 HandChecker.prototype.fullHouse = function() {
-  console.log(this.sortedHand)
-  console.log(this.cardsFrequency)
-  if (this.cardsFrequency.filter(function (elem) {
-    return elem == 2;
-    }).length >= 2)
-  if (this.cardsFrequency.includes(3) && this.cardsFrequency.includes(2)) return this.sortedHand.splice([this.cardsFrequency.indexOf(3)], 3).concat(this.sortedHand.splice([this.cardsFrequency.indexOf(2)], 2))
+  if (this.cardsFrequency[0][1] == 3 && this.cardsFrequency[0][3] >= 2) return this.cardsFrequency[2].splice(0, 5)
 }
 
 HandChecker.prototype.threeOfAKind = function() {
-  if (this.cardsFrequency.includes(3)) return this.bestHand(3)
+  if (this.cardsFrequency[0].includes(3)) return this.cardsFrequency[2].splice(0, 3).concat(this.reSortCards(this.cardsFrequency[2]).splice(0, 2))
 }
 
 HandChecker.prototype.twoPair = function() {
-  if (this.cardsFrequency.filter(function (elem) {
-    return elem == 2;
-}).length >= 4) { returnArray = this.sortedHand.splice([this.cardsFrequency.indexOf(2)], 2);
-  this.cardsFrequency.splice([this.cardsFrequency.indexOf(2)], 2);
-  returnArray = returnArray.concat(this.sortedHand.splice([this.cardsFrequency.indexOf(2)], 2)).concat(this.sortedHand.splice(0, 1))
-  return returnArray
-  }
+  if (this.cardsFrequency[0][1] == 2 && this.cardsFrequency[0][2] == 2) return this.cardsFrequency[2].splice(0, 4).concat(this.reSortCards(this.cardsFrequency[2]).splice(0, 1))
 }
 
 HandChecker.prototype.pair = function(cards) {
-  if (this.cardsFrequency.includes(2)) return this.bestHand(2)
+  if (this.cardsFrequency[0].includes(2)) return this.cardsFrequency[2].splice(0, 2).concat(this.reSortCards(this.cardsFrequency[2]).splice(0,3))
 }
 
-HandChecker.prototype.
-function modeAndFrequency(hand) {
-  var a = [], b = [], prev;
-  for ( var i = 0; i < hand.length; i++ ) {
-    if ( hand[i][0] !== prev ) {
-      a.push(hand[i]);
-      b.push(1);
-    } else {
-      a.push(hand[i]);
-      b.push(b[b.length-1]);
-      for (var n = 1; n <= b[b.length-1]; n++) {
-        b[b.length-n]++
-      }
-    }
-    prev = hand[i][0];
-  }
-  return [a, b];
-}
-
-HandChecker.prototype.bestHand = function(n) {
-  return this.sortedHand.splice([this.cardsFrequency.indexOf(n)], n).concat(this.sortedHand.splice(0, 5 - n))
-}
+HandChecker.prototype.reSortCards = function(handToSort) {
+  var suits = ['s', 'h', 'd', 'c']
+  var cards = [ 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2' ];
+  var cardsOrder = []
+  cards.forEach(function(card){
+    suits.forEach(function(suit){
+      cardsOrder.push(card + suit);
+    });
+  });
+  return handToSort.concat().sort(function(a, b) {
+    return cardsOrder.indexOf(a) - cardsOrder.indexOf(b);
+  });
+};
 
 module.exports = HandChecker;
