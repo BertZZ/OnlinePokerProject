@@ -24,7 +24,6 @@ Game.prototype.deal = function(){
   for (i = 0; i< rand; i++){
     this.shuffleDeck()
   }
-  console.log(rand)
   for (i = 0; i < this.numberOfPlayers; i++) {
     var card = this.cardDeck.deck.shift()
     this.players[i].hand.push(card)
