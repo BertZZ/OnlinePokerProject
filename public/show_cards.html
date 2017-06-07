@@ -1,0 +1,13 @@
+    <div data-ng-controller="PlayerRender">
+      <button ng-click="dealCommunal()">DEAL COMMUNAL</button>
+          <img id="{{ communalCards[0] }}" class="cards"/>
+          <img id="{{ communalCards[1] }}" class="cards"/>
+          <img id="{{ communalCards[2] }}" class="cards"/>
+          <img id="{{ communalCards[3] }}" class="cards"/>
+          <img id="{{ communalCards[4] }}" class="cards"/>
+    </div>
+
+    <div class="player" data-ng-controller="PlayerRender">
+      <button ng-click="dealPlayer()">DEAL</button>
+          <img id="{{ playerCards[0] }}" class="cards"/><img id="{{ playerCards[1] }}" class="cards"/>
+    </div>

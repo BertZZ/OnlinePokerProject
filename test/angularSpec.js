@@ -18,7 +18,6 @@ describe('Home Page', function() {
   });
 
    describe('loading page', function() {
-
      it('should be successful', function() {
        browser.assert.success();
      });
@@ -28,14 +27,18 @@ describe('Home Page', function() {
      });
    });
 
-   describe('Deal Communal', function() {
-     it('a back is there before the button is pressed', function() {
-       browser.assert.elements("#back", 7);
-     });
-
-     it('a king is there after the button is pressed', function() {
-       browser.pressButton("DEAL COMMUNAL");
-       browser.assert.elements("#king_s", 1);
-     });
+   describe('Start Button', function() {
+     it('')
    });
+
+  //  describe('Deal Communal', function() {
+  //    it('a back is there before the button is pressed', function() {
+  //      browser.assert.elements("#back", 7);
+  //    });
+   //
+  //    it('a king is there after the button is pressed', function() {
+  //      browser.pressButton("DEAL COMMUNAL");
+  //      browser.assert.elements("#king_s", 1);
+  //    });
+  //  });
 });

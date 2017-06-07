@@ -5,6 +5,7 @@
     <link href="deck.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="angular.js"></script>
+    <script src="start.js"></script>
   </head>
 
   <body>
@@ -12,7 +13,13 @@
       <h1>Poker</h1>
     </div>
 
-    <div data-ng-controller="PlayerRender">
+    <div data-ng-controller="StartRender">
+      <div>
+        <button ng-click="changeURL()">START</button>
+      </div>
+    </div>
+
+    <!-- <div data-ng-controller="PlayerRender">
       <button ng-click="dealCommunal()">DEAL COMMUNAL</button>
           <img id="{{ communalCards[0] }}" class="cards"/>
           <img id="{{ communalCards[1] }}" class="cards"/>
@@ -24,6 +31,6 @@
     <div class="player" data-ng-controller="PlayerRender">
       <button ng-click="dealPlayer()">DEAL</button>
           <img id="{{ playerCards[0] }}" class="cards"/><img id="{{ playerCards[1] }}" class="cards"/>
-    </div>
+    </div> -->
   </body>
 </hmtl>

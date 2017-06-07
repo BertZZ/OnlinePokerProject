@@ -1,8 +1,6 @@
 angular.module('ViewController',[])
   .controller('PlayerRender',['$scope', PlayerRender]);
 
-
-
   function PlayerRender($scope){
     $scope.playerCards = ['back', 'back'];
     $scope.communalCards = ['back','back','back','back','back'];
@@ -13,5 +11,17 @@ angular.module('ViewController',[])
 
     $scope.dealCommunal = function(){
       $scope.communalCards = ['king_s', 'two_c', 'king_h', 'jack_d', 'queen_s'];
+    }
+  }
+
+  angular.module('StartController', ['ngAnimate'])
+    .controller('StartRender', ['$scope', StartRender]);
+
+    function StartRender($scope){
+      $scope.screenURL;
+
+    $scope.changeURL = function() {
+      $scope.screenURL = 'dealURL';
+      console.log('working');
     }
   }
