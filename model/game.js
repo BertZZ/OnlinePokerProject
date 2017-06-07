@@ -15,7 +15,16 @@ function Game(players) {
   }
 }
 
+Game.prototype.shuffleDeck = function(){
+  this.cardDeck.shuffleDeck()
+}
+
 Game.prototype.deal = function(){
+  var rand = Math.floor(Math.random() * 50) + 7
+  for (i = 0; i< rand; i++){
+    this.shuffleDeck()
+  }
+  console.log(rand)
   for (i = 0; i < this.numberOfPlayers; i++) {
     var card = this.cardDeck.deck.shift()
     this.players[i].hand.push(card)
