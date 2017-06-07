@@ -82,11 +82,11 @@ function HandChecker(hand) {
 };
 
 HandChecker.prototype.poker = function() {
-  if (this.cardsFrequency[0][0] == 4) return this.cardsFrequency[2].splice(0, 5)
+  return { poker: this.cardsFrequency[2].splice(0, 5) }
 }
 
 HandChecker.prototype.flush = function() {
-  if (this.suitFrequency[0][0] >= 5) return this.suitFrequency[2].splice(0, 5)
+  return { flush: this.suitFrequency[2].splice(0, 5) }
 }
 
 HandChecker.prototype.straight = function() {
@@ -114,20 +114,48 @@ HandChecker.prototype.straight = function() {
   }
 }
 
+HandChecker.prototype.isPoker = function() {
+  return this.cardsFrequency[0][0] == 4
+}
+
 HandChecker.prototype.fullHouse = function() {
-  if (this.cardsFrequency[0][1] == 3 && this.cardsFrequency[0][3] >= 2) return this.cardsFrequency[2].splice(0, 5)
+   return { fullHouse: this.cardsFrequency[2].splice(0, 5) }
 }
 
 HandChecker.prototype.threeOfAKind = function() {
-  if (this.cardsFrequency[0].includes(3)) return this.cardsFrequency[2].splice(0, 3).concat(this.reSortCards(this.cardsFrequency[2]).splice(0, 2))
+  return { threeOfAKind: this.cardsFrequency[2].splice(0, 3).concat(this.reSortCards(this.cardsFrequency[2]).splice(0, 2)) }
 }
 
 HandChecker.prototype.twoPair = function() {
-  if (this.cardsFrequency[0][1] == 2 && this.cardsFrequency[0][2] == 2) return this.cardsFrequency[2].splice(0, 4).concat(this.reSortCards(this.cardsFrequency[2]).splice(0, 1))
+  return { twoPair: this.cardsFrequency[2].splice(0, 4).concat(this.reSortCards(this.cardsFrequency[2]).splice(0, 1)) }
 }
 
-HandChecker.prototype.pair = function(cards) {
-  if (this.cardsFrequency[0].includes(2)) return this.cardsFrequency[2].splice(0, 2).concat(this.reSortCards(this.cardsFrequency[2]).splice(0,3))
+HandChecker.prototype.pair = function() {
+  return { pair: this.cardsFrequency[2].splice(0, 2).concat(this.reSortCards(this.cardsFrequency[2]).splice(0,3)) }
+}
+
+HandChecker.prototype.isFullHouse = function() {
+  return this.cardsFrequency[0][1] == 3 && this.cardsFrequency[0][3] >= 2
+}
+
+HandChecker.prototype.isFlush = function() {
+  return this.suitFrequency[0][0] >= 5
+}
+
+HandChecker.prototype.isStraight = function() {
+
+}
+
+HandChecker.prototype.isThreeOfAKind = function() {
+  return this.cardsFrequency[0].includes(3)
+}
+
+HandChecker.prototype.isTwoPair = function() {
+  return this.cardsFrequency[0][1] == 2 && this.cardsFrequency[0][2] == 2
+}
+
+HandChecker.prototype.isPair = function() {
+  return this.cardsFrequency[0].includes(2)
 }
 
 HandChecker.prototype.reSortCards = function(handToSort) {
@@ -143,5 +171,14 @@ HandChecker.prototype.reSortCards = function(handToSort) {
     return cardsOrder.indexOf(a) - cardsOrder.indexOf(b);
   });
 };
+
+HandChecker.prototype.bestHand = function() {
+  if (this.isPoker()) return this.poker()
+  if (this.isFullHouse()) return this.fullHouse()
+  if (this.isFlush()) return this.flush()
+  if (this.isThreeOfAKind()) return this.threeOfAKind()
+  if (this.isTwoPair()) return this.twoPair()
+  if (this.isPair()) return this.pair()
+}
 
 module.exports = HandChecker;
