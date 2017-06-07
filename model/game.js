@@ -1,22 +1,28 @@
 var CardDeck = require('./cardDeck.js');
+var Player = require('./player.js');
 
 function Game(players) {
-  this.players = players
+  this.numberOfPlayers = players
   this.hands = []
   this.cardDeck = new CardDeck
   this.pool = []
+  this.players = []
+  for (i = 0; i < this.numberOfPlayers; i++) {
+    var player = new Player
+    var number = i + 1
+    player.playerId = "Player " + number
+    this.players.push(player)
+  }
 }
 
 Game.prototype.deal = function(){
-  for (i = 0; i < this.players; i++) {
-    var hand = []
+  for (i = 0; i < this.numberOfPlayers; i++) {
     var card = this.cardDeck.deck.shift()
-    hand.push(card);
-    this.hands.push(hand)
+    this.players[i].hand.push(card)
   }
-  for (i = 0; i < this.players; i++) {
+  for (i = 0; i < this.numberOfPlayers; i++) {
     var card = this.cardDeck.deck.shift()
-    this.hands[i].push(card)
+    this.players[i].hand.push(card)
   }
 }
 
@@ -36,4 +42,5 @@ Game.prototype.river = function(){
   var card = this.cardDeck.deck.shift()
   this.pool.push(card)
 }
+
 module.exports = Game;
