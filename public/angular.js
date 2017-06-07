@@ -6,7 +6,6 @@ angular.module('ViewController',[])
   function PlayerRender($scope){
     $scope.playerCards = ['back', 'back'];
     $scope.communalCards = ['back','back','back','back','back'];
-    console.log($scope.communalCards);
 
     $scope.dealPlayer = function() {
       $scope.playerCards = ['ace_s', 'queen_h'];
