@@ -13,6 +13,10 @@ function Game(players) {
     player.playerId = "Player " + number
     this.players.push(player)
   }
+  var rand = Math.floor(Math.random() * 50) + 7
+  for (i = 0; i< rand; i++){
+    this.shuffleDeck()
+  }
 }
 
 Game.prototype.shuffleDeck = function(){
@@ -27,10 +31,6 @@ Game.prototype.dealOneCard = function(){
 }
 
 Game.prototype.deal = function(){
-  var rand = Math.floor(Math.random() * 50) + 7
-  for (i = 0; i< rand; i++){
-    this.shuffleDeck()
-  }
   this.dealOneCard()
   this.dealOneCard()
 }
