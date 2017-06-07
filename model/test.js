@@ -3,8 +3,7 @@ function HandChecker(hand) {
   this.sortedHandBySuit = sortCardsBySuit(this.sortedHand)
   this.cardsFrequency = frequency(this.sortedHand, 0)
   this.suitFrequency = frequency(this.sortedHandBySuit, 1)
-  this.sortedCardValues = valueSuitSplitter(this.sortedHand)[0]
-  this.sortedCardSuits = valueSuitSplitter(this.sortedHand)[1]
+  this.sortedCardValues = this.valueSuitSplitter(this.sortedHand)[0]
 
   function sortCards(handToSort) {
     var suits = ['s', 'h', 'd', 'c']
@@ -31,16 +30,6 @@ function HandChecker(hand) {
         return 0;
       });
     };
-
-  function valueSuitSplitter(cards) {
-      splittedCards = [[],[]];
-      for ( var i = 0; i < cards.length; i++ ) {
-        card = cards[i].split('')
-        splittedCards[0].push(card[0])
-        splittedCards[1].push(card[1])
-      }
-      return splittedCards
-    }
 
     function frequency(handToCheckFreq, n) {
       var freq = [], prev;
@@ -81,12 +70,20 @@ function HandChecker(hand) {
   }
 };
 
+HandChecker.prototype.royalFlush = function() {
+  return { royalFlush: this.straight().straight }
+}
+
+HandChecker.prototype.straightFlush = function() {
+  return { straightFlush: this.straight().straight }
+}
+
 HandChecker.prototype.poker = function() {
   return { poker: this.cardsFrequency[2].splice(0, 5) }
 }
 
 HandChecker.prototype.flush = function() {
-  return { flush: this.suitFrequency[2].splice(0, 5) }
+  return { flush: this.suitFrequency[2].concat().splice(0, 5) }
 }
 
 HandChecker.prototype.straight = function() {
@@ -98,6 +95,14 @@ HandChecker.prototype.straight = function() {
       }))
     }
     return { straight: straightCards }
+}
+
+HandChecker.prototype.isRoyalFlush = function() {
+  if (this.isFlush() && this.flush().flush[0][0] == 'A' && this.isStraight(this.valueSuitSplitter(this.flush().flush)[0])) return true
+}
+
+HandChecker.prototype.isStraightFlush = function() {
+  if (this.isFlush() && this.isStraight(this.valueSuitSplitter(this.flush().flush)[0])) return true
 }
 
 HandChecker.prototype.isPoker = function() {
@@ -128,9 +133,9 @@ HandChecker.prototype.isFlush = function() {
   return this.suitFrequency[0][0] >= 5
 }
 
-HandChecker.prototype.isStraight = function() {
+HandChecker.prototype.isStraight = function(checkStraight = this.sortedCardValues) {
   var straightCards = "AKQJT98765432A5432"
-  var possibleStraight = this.sortedCardValues.filter(unique).join('')
+  var possibleStraight = checkStraight.filter(unique).join('')
   var possibleSmallStraight = possibleStraight[0] + possibleStraight.substr(possibleStraight.length - 4, 4)
   for (var i = 0; i < possibleStraight.length - 4; i++) {
     if (straightCards.includes(possibleStraight.substr(i, 5))) { this.straightString = possibleStraight;
@@ -145,6 +150,7 @@ HandChecker.prototype.isStraight = function() {
   function unique(value, index, self) {
       return self.indexOf(value) === index;
   }
+  return false
 }
 
 HandChecker.prototype.isThreeOfAKind = function() {
@@ -174,6 +180,8 @@ HandChecker.prototype.reSortCards = function(handToSort) {
 };
 
 HandChecker.prototype.bestHand = function() {
+  if (this.isRoyalFlush()) return this.royalFlush()
+  if (this.isStraightFlush()) return this.straightFlush()
   if (this.isPoker()) return this.poker()
   if (this.isFullHouse()) return this.fullHouse()
   if (this.isFlush()) return this.flush()
@@ -181,6 +189,16 @@ HandChecker.prototype.bestHand = function() {
   if (this.isThreeOfAKind()) return this.threeOfAKind()
   if (this.isTwoPair()) return this.twoPair()
   if (this.isPair()) return this.pair()
+}
+
+HandChecker.prototype.valueSuitSplitter = function(cards) {
+  splittedCards = [[],[]];
+  for ( var i = 0; i < cards.length; i++ ) {
+    card = cards[i].split('')
+    splittedCards[0].push(card[0])
+    splittedCards[1].push(card[1])
+  }
+  return splittedCards
 }
 
 module.exports = HandChecker;

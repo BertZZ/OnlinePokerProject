@@ -30,7 +30,7 @@ describe('HandChecker', function() {
   });
 
   it('returns a flush', function() {
-    cards = ['Ah', '2d', '3s', '8s', '5s', '9s', '4s']
+    cards = ['Ah', 'Jd', '3s', '8s', '5s', '9s', '4s']
     handChecker = new HandChecker(cards)
     expect(handChecker.bestHand()).to.deep.equal( { flush: [ '9s', '8s', '5s', '4s', '3s' ] } )
   })
@@ -45,6 +45,18 @@ describe('HandChecker', function() {
     cards = [ 'As', 'Ad', 'Ac', 'Ah', 'Ks', 'Qd', 'Js']
     handChecker = new HandChecker(cards)
     expect(handChecker.bestHand()).to.deep.equal( { poker: ['As', 'Ah', 'Ad', 'Ac', 'Ks'] } )
+  })
+
+  it('returns a straight flush', function() {
+    cards = ['Ts', '2d', '7s', '8s', '6s', '9s', '4h']
+    handChecker = new HandChecker(cards)
+    expect(handChecker.bestHand()).to.deep.equal( { straightFlush: ['Ts', '9s', '8s', '7s', '6s'] } )
+  })
+
+  it('returns a royal flush', function() {
+    cards = ['As', '2d', 'Ts', 'Js', 'Ks', 'Qs', '4h']
+    handChecker = new HandChecker(cards)
+    expect(handChecker.bestHand()).to.deep.equal( { royalFlush: ['As', 'Ks', 'Qs', 'Js', 'Ts'] } )
   })
 
 });
