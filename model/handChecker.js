@@ -1,7 +1,8 @@
 function HandChecker(hand) {
   this.sortedHand = sortCards(hand)
+  this.sortedHandBySuit = sortCardsBySuit(this.sortedHand)
   this.cardsFrequency = frequency(this.sortedHand, 0)
-  this.suitFrequency = frequency(this.sortedHand, 1)
+  this.suitFrequency = frequency(this.sortedHandBySuit, 1)
   this.sortedCardValues = valueSuitSplitter(this.sortedHand)[0]
   this.sortedCardSuits = valueSuitSplitter(this.sortedHand)[1]
 
@@ -14,10 +15,22 @@ function HandChecker(hand) {
         cardsOrder.push(card + suit);
       });
     });
-    return handToSort.sort(function(a, b) {
+    return handToSort.concat().sort(function(a, b) {
       return cardsOrder.indexOf(a) - cardsOrder.indexOf(b);
     });
   };
+
+  function sortCardsBySuit(handToSort) {
+    return handToSort.concat().sort(function(a, b) {
+      if (a[1] < b[1]) {
+        return -1;
+      }
+      if (a[1] > b[1]) {
+        return 1;
+      }
+        return 0;
+      });
+    };
 
   function valueSuitSplitter(cards) {
       splittedCards = [[],[]];
@@ -35,7 +48,7 @@ function HandChecker(hand) {
         if ( handToCheckFreq[i][n] !== prev ) {
           freq.push(1);
         } else {
-          freq[freq.length -1 ]++;
+          freq[ freq.length -1 ]++;
         }
         prev = handToCheckFreq[i][n];
       }
@@ -48,8 +61,7 @@ HandChecker.prototype.poker = function() {
 }
 
 HandChecker.prototype.flush = function() {
-  console.log(Math.max(this.suitFrequency))
-  if (this.suitFrequency.sort()[0] >= 5) return true
+  if (this.suitFrequency.some(x => x >= 5)) return this.sortedHandBySuit.splice([this.suitFrequency.indexOf(5)], 5)
 }
 
 HandChecker.prototype.straight = function() {
@@ -75,7 +87,9 @@ HandChecker.prototype.threeOfAKind = function() {
 }
 
 HandChecker.prototype.twoPair = function() {
-  if (this.modeAndFrequency(this.sortedCardValues)[1][0] === 2 && this.modeAndFrequency(this.sortedCardValues)[1][1] === 2) return true
+  if (this.cardsFrequency.filter(function (elem) {
+    return elem == 2;
+}).length >= 2) return this.sortedHand.splice([this.cardsFrequency.indexOf(2)], 2).concat(this.sortedHand.splice([this.cardsFrequency.indexOf(2)], 2)).concat(this.sortedHand.splice(0, 1))
 }
 
 HandChecker.prototype.pair = function(cards) {

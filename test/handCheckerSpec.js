@@ -11,34 +11,34 @@ describe('HandChecker', function() {
     expect(handChecker.pair()).to.deep.equal(['3s', '3c', 'Js', 'Ts', '7h']);
   });
 
-  it('returns true for two pair', function() {
+  it('returns two pair', function() {
     cards = ['3s','3h','5d','5c','7d', 'Jc', 'Jh']
     handChecker = new HandChecker(cards)
-    expect(handChecker.twoPair()).to.deep.equal(true);
+    expect(handChecker.twoPair()).to.deep.equal(['Jh', 'Jc', '7d', '5d', '5c']);
   });
 
   it('returns three of a kind', function() {
     cards = ['6s','6c','6h','5h','7d', 'Qs', 'Kh']
     handChecker = new HandChecker(cards)
-    expect(handChecker.threeOfAKind(cards)).to.deep.equal(['6s', '6h', '6c', 'Kh', 'Qs']);
+    expect(handChecker.threeOfAKind()).to.deep.equal(['6s', '6h', '6c', 'Kh', 'Qs']);
   });
 
-  it('returns true for full house', function() {
+  it('returns a full house', function() {
     cards = ['6s','6c','5s','5c','5h', '7d', '9h']
     handChecker = new HandChecker(cards)
     expect(handChecker.fullHouse()).to.equal(true);
   });
 
-  it('returns true for flush', function() {
-    cards = ['Ah', '2d', '3s', '8s', '5s', '8s', '4s']
+  it('returns a flush', function() {
+    cards = ['Ah', '2d', '3s', '8s', '5s', '9s', '4s']
     handChecker = new HandChecker(cards)
-    expect(handChecker.flush()).to.equal(true)
+    expect(handChecker.flush()).to.deep.equal([ '9s', '8s', '5s', '4s', '3s' ])
   })
 
-  it('returns true for a straight', function() {
+  it('returns a straight', function() {
     cards = [ 'As', '2s', 'Jc', '4h', '5d', '3d', 'Td' ]
     handChecker = new HandChecker(cards)
-    expect(handChecker.straight(cards)).to.equal(true)
+    expect(handChecker.straight()).to.equal(true)
   });
 
   it('returns a poker', function() {
