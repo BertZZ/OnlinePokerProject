@@ -1,6 +1,17 @@
 angular.module('ViewController',[])
-  .controller('CardRenderer', function($scope){
-    $scope.cards = ['ace_s', 'two_s', 'king_h', 'jack_d', 'queen_h']
-  }
+  .controller('PlayerRender',['$scope', PlayerRender]);
 
-);
+
+
+  function PlayerRender($scope){
+    $scope.playerCards = ['back', 'back'];
+    console.log($scope.playerCards);
+    // $scope.communalCards;
+
+    $scope.dealPlayer = function() {
+      $scope.playerCards = ['ace_s', 'queen_h'];
+    };
+    // $scope.dealCommunal = function(){
+    //   $scope.communalCards = ['king_s', 'two_c', 'king_h', 'jack_d', 'queen_h'];
+    // }
+  }

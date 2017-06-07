@@ -1,6 +1,23 @@
 h1 {
   color: red;
+  text-align: center;
 }
+
+.player {
+  text-align: center;
+  margin: 55% auto;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .cards {
     background: url(images/carddeck.png);
