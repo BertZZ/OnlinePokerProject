@@ -4,13 +4,20 @@
     <script src='../all.js'></script>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <link href="deck.css" rel="stylesheet" type="text/css"/>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="angular.js"></script>
+    <script src="starts.js"></script>
   </head>
 
-  <body>
+  <body >
+
     <div class="text">
-      <h1>Card Test Page</h1>
+      <h1>Poker</h1>
     </div>
 
-    <image id="back" class="cards"/>
+    <div ng-app='ViewController'>
+      <ui-view><a ui-sref="about">Start</a></ui-view>
+    </div>
   </body>
 </hmtl>

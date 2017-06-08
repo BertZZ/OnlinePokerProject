@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/BertZZ/OnlinePokerProject#readme",
   "dependencies": {
+    "@uirouter/angularjs": "latest",
+    "@uirouter/visualizer": "latest",
     "chai": "^4.0.1",
     "express": "^4.15.3",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "should": "^11.2.1",
+    "zombie": "^5.0.5"
   }
 }
