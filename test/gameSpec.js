@@ -16,12 +16,6 @@ describe("Game", function() {
     done()
   })
 
-  it('should start with an empty hands array', function(done) {
-    var game = new Game(3)
-    expect(game.hands).to.be.an('array').that.is.empty;
-    done()
-  })
-
   it('should deal 2 cards from the top of the deck to each player', function(done){
     var game = new Game(3)
     game.deal();
