@@ -1,36 +1,24 @@
 <!DOCTYPE HTML>
-<hmtl data-ng-app="ViewController">
+<hmtl>
   <head>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <link href="deck.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
     <script src="angular.js"></script>
     <script src="start.js"></script>
   </head>
 
-  <body>
+  <body data-ng-app='ViewController'>
     <div class="text">
       <h1>Poker</h1>
     </div>
 
-    <div data-ng-controller="StartRender">
-      <div>
+    <div>
+      <div data-ng-controller="PlayerRender">
         <button ng-click="changeURL()">START</button>
       </div>
     </div>
 
-    <!-- <div data-ng-controller="PlayerRender">
-      <button ng-click="dealCommunal()">DEAL COMMUNAL</button>
-          <img id="{{ communalCards[0] }}" class="cards"/>
-          <img id="{{ communalCards[1] }}" class="cards"/>
-          <img id="{{ communalCards[2] }}" class="cards"/>
-          <img id="{{ communalCards[3] }}" class="cards"/>
-          <img id="{{ communalCards[4] }}" class="cards"/>
-    </div>
-
-    <div class="player" data-ng-controller="PlayerRender">
-      <button ng-click="dealPlayer()">DEAL</button>
-          <img id="{{ playerCards[0] }}" class="cards"/><img id="{{ playerCards[1] }}" class="cards"/>
-    </div> -->
   </body>
 </hmtl>

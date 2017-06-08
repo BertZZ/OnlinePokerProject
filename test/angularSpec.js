@@ -30,15 +30,4 @@ describe('Home Page', function() {
    describe('Start Button', function() {
      it('')
    });
-
-  //  describe('Deal Communal', function() {
-  //    it('a back is there before the button is pressed', function() {
-  //      browser.assert.elements("#back", 7);
-  //    });
-   //
-  //    it('a king is there after the button is pressed', function() {
-  //      browser.pressButton("DEAL COMMUNAL");
-  //      browser.assert.elements("#king_s", 1);
-  //    });
-  //  });
 });
