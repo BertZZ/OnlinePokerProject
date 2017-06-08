@@ -3,22 +3,20 @@
   <head>
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <link href="deck.css" rel="stylesheet" type="text/css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="angular.js"></script>
-    <script src="start.js"></script>
+    <script src="starts.js"></script>
   </head>
 
-  <body data-ng-app='ViewController'>
+  <body >
+
     <div class="text">
       <h1>Poker</h1>
     </div>
 
-    <div>
-      <div data-ng-controller="PlayerRender">
-        <button ng-click="changeURL()">START</button>
-      </div>
+    <div ng-app='ViewController'>
+      <ui-view><a ui-sref="about">Start</a></ui-view>
     </div>
-
   </body>
 </hmtl>
