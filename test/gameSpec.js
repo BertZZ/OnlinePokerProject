@@ -17,12 +17,6 @@ describe("Game", function() {
     done()
   })
 
-  it('should start with an empty hands array', function(done) {
-    var game = new Game(3)
-    expect(game.hands).to.be.an('array').that.is.empty;
-    done()
-  })
-
   it('should deal 2 cards from the top of the deck to each player', function(done){
     var game = new Game(3)
     game.deal();
@@ -74,6 +68,7 @@ describe("Game", function() {
     expect(shuffledDeck).to.not.equal(orderedDeck)
     done()
   })
+
   it('should create the number of players that have been selected to play the game', function(done){
     var game = new Game(3)
     expect(game.players).to.be.an('array').that.is.not.empty;

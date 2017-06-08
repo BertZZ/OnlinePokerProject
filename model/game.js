@@ -3,7 +3,9 @@ var Player = require('./player.js');
 
 function Game(players) {
   this.numberOfPlayers = players
+
   this.hands = []
+
   this.cardDeck = new CardDeck()
   this.pool = []
   this.players = []
