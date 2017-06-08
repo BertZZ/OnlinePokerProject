@@ -3,11 +3,12 @@ var Player = require('./player.js');
 
 function Game(players) {
   this.numberOfPlayers = players
-  this.cardDeck = new CardDeck
+  this.hands = []
+  this.cardDeck = new CardDeck()
   this.pool = []
   this.players = []
   for (i = 0; i < this.numberOfPlayers; i++) {
-    var player = new Player
+    var player = new Player()
     var number = i + 1
     player.playerId = "Player " + number
     this.players.push(player)
@@ -49,6 +50,17 @@ Game.prototype.turn = function(){
 Game.prototype.river = function(){
   var card = this.cardDeck.deck.shift()
   this.pool.push(card)
+}
+
+Game.prototype.newRound = function(){
+  for (i = 0; i < this.numberOfPlayers; i++) {
+    this.players[i].hand = []
+  }
+  this.cardDeck = new CardDeck()
+  var rand = Math.floor(Math.random() * 50) + 7
+  for (i = 0; i< rand; i++){
+    this.shuffleDeck()
+  }
 }
 
 module.exports = Game;
