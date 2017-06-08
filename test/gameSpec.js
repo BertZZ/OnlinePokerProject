@@ -67,6 +67,7 @@ describe("Game", function() {
     expect(shuffledDeck).to.not.equal(orderedDeck)
     done()
   })
+
   it('should create the number of players that have been selected to play the game', function(done){
     var game = new Game(3)
     expect(game.players).to.be.an('array').that.is.not.empty;
