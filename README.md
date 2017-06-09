@@ -24,7 +24,7 @@ Testing
 --------
 We used Mocha/Chai and Zombie for testing
 
-![alt text](https://www.imageupload.co.uk/image/BosF)
+![alt text](https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.35.08f9b27.png)
 
 INSERT IMAGE OF TESTS PASSING
 
