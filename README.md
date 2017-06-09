@@ -23,11 +23,13 @@ Testing
 --------
 We used Mocha/Chai and Zombie for testing
 
-INSERT IMAGE OF TESTS
+INSERT IMAGE OF TESTS PASSING
 
 Acomplishments
 ---------------
-1. The Hand Checker function is a really great achievemnet. 
+1. The Hand Checker function is a really great accompleshment, writing our own and not using a gem or Library
+2. Getting the cards to appear on the webpage dynamically. 
+3. The game logic is well written and structured. 
 
 
 
