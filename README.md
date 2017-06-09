@@ -1,6 +1,6 @@
 # Online Poker Project
 
-Written as part of the course at Makers Academy. 
+Written as part of the course at Makers Academy. Made by: [Peter Barcsak](https://github.com/baree99), [Tim Hawkins](https://github.com/therealtimhawkins), [Bertie Wooles](https://github.com/BertZZ) and [Unai Motriko](https://github.com/motri).
 
 To Start
 ---------
@@ -26,6 +26,7 @@ We used Mocha/Chai and Zombie for testing
 
 ![alt text](https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.35.08f9b27.png)
 
+INSERT IMAGE OF TESTS PASSING
 
 Acomplishments
 ---------------
