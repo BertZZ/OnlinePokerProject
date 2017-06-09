@@ -9,7 +9,7 @@ To Start
 npm install
 node app
 ```
-![alt text]('https://static.pexels.com/photos/5412/water-blue-ocean.jpg')
+![Alt text](https://static.pexels.com/photos/5412/water-blue-ocean.jpg)
 
 The Project
 -----------
@@ -24,7 +24,7 @@ Testing
 --------
 We used Mocha/Chai and Zombie for testing
 
-![alt text]('https://www.imageupload.co.uk/image/BosF')
+![alt text](https://www.imageupload.co.uk/image/BosF)
 
 INSERT IMAGE OF TESTS PASSING
 
