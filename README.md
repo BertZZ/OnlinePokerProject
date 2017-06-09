@@ -9,7 +9,7 @@ To Start
 npm install
 node app
 ```
-[GAME DEMO]('https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.44.59fe09c.png')
+![alt text]('https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.44.59fe09c.png')
 
 The Project
 -----------
@@ -24,7 +24,7 @@ Testing
 --------
 We used Mocha/Chai and Zombie for testing
 
-![TESTS]('https://www.imageupload.co.uk/image/BosF')
+![alt text]('https://www.imageupload.co.uk/image/BosF')
 
 INSERT IMAGE OF TESTS PASSING
 
