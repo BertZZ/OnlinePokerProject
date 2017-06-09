@@ -1,21 +1,42 @@
 h1 {
   color: red;
   text-align: center;
+  font-family: 'Limelight', cursive;
+  color: #A63515;
 }
 
-.player {
+body {
   text-align: center;
-  margin: 35% auto;
+  background-image: url('images/pokertable.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .cards {
-    background: url(images/carddeck.png);
-    width: 204px;
-    height: 282px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin: 10px;
+  background: url(images/carddeck.png);
+  width: 204px;
+  height: 282px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.card_container {
+  display: inline-block;
+  margin-left: 3%;
+}
+
+.your_card_container {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+button {
+  color: #900;
+  font-weight: bold;
+  font-size: 150%;
+  text-transform: uppercase;
 }
 
 @media (min-width:761px){

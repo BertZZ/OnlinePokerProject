@@ -17,12 +17,15 @@ app.get('/', function(req, res) {
   var game = new Game(1);
   game.deal()
   var playerHand = game.players[0].hand
+
   game.flop()
   game.turn()
   game.river()
+
   var communalCards = game.pool
   var handChecker = new HandChecker();
   var bestHand = handChecker.bestHand(playerHand.concat(communalCards))
+  
   res.render('index', {
     playerCards: playerHand,
     communalCards: communalCards,
