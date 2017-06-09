@@ -7,7 +7,7 @@ To Start
 
 ```
 npm install
-nodemon
+node app
 ```
 
 The Project
@@ -30,6 +30,11 @@ Acomplishments
 1. The Hand Checker function is a really great accompleshment, writing our own and not using a gem or Library
 2. Getting the cards to appear on the webpage dynamically. 
 3. The game logic is well written and structured. 
+
+Struggles
+---------
+1. Working with Angular Js 
+
 
 
 
