@@ -9,7 +9,7 @@ To Start
 npm install
 node app
 ```
-![GAME DEMO]('https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.44.59fe09c.png')
+[GAME DEMO]('https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.44.59fe09c.png')
 
 The Project
 -----------
