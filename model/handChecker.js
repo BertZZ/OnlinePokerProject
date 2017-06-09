@@ -175,16 +175,16 @@ HandChecker.prototype.sortCards = function(handToSort) {
 };
 
 HandChecker.prototype.getBestHand = function() {
-  if (this.isRoyalFlush()) return handValue('royal flush', this.royalFlush())
-  if (this.isStraightFlush()) return handValue('straight flush', this.straightFlush())
-  if (this.isPoker()) return handValue('poker', this.poker())
-  if (this.isFullHouse()) return handValue('full house', this.fullHouse())
-  if (this.isFlush()) return handValue('flush', this.flush())
-  if (this.isStraight()) return handValue('straight', this.straight())
-  if (this.isThreeOfAKind()) return handValue('three of a kind', this.threeOfAKind())
-  if (this.isTwoPair()) return handValue('two pair', this.twoPair())
-  if (this.isPair()) return handValue('pair', this.pair())
-  else return handValue('high card', this.highCard())
+  if (this.isRoyalFlush()) return handValue('Royal flush', this.royalFlush())
+  if (this.isStraightFlush()) return handValue('Straight Flush', this.straightFlush())
+  if (this.isPoker()) return handValue('Poker', this.poker())
+  if (this.isFullHouse()) return handValue('Full House', this.fullHouse())
+  if (this.isFlush()) return handValue('Flush', this.flush())
+  if (this.isStraight()) return handValue('Straight', this.straight())
+  if (this.isThreeOfAKind()) return handValue('Three of a Kind', this.threeOfAKind())
+  if (this.isTwoPair()) return handValue('Two Pairs', this.twoPair())
+  if (this.isPair()) return handValue('A Pair', this.pair())
+  else return handValue('High Card', this.highCard())
 
   function handValue(hand, method) {
     return { name: hand,
