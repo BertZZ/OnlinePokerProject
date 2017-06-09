@@ -13,7 +13,7 @@ nodemon
 The Project
 -----------
 
-The project started as a slightly ambitious Online poker game. However we quickly realised this would not be possible in a week whilst also writing a poker hand checker from scratch. The app we have built we feel could be used for generating realistic poker hands to assist learning in a risk free environment, alongside other Poker learning reasorces. 
+The project started as a slightly ambitious Online poker game. However we quickly realised this would not be possible in a week whilst also writing a poker hand checker from scratch. The app we have built we feel can be used as a learning tool as it's ability  to generate realistic poker hands to assist learning in a risk free environment, alongside other Poker learning reasorces and tutorials would be usefull in assisting with thought exercises and practice. The apps ability to generate full hands quickly means that hundreds of hands can be generated and thought through in a very short amount of time. 
 
 Technologies
 ------------
