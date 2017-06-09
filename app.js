@@ -22,11 +22,11 @@ app.get('/', function(req, res) {
   game.river()
   var communalCards = game.pool
   var handChecker = new HandChecker();
-  var bestHand = handChecker.bestHand(['3s', '3c', 'Js', 'Ts', '7h'])
+  var bestHand = handChecker.bestHand(playerHand.concat(communalCards))
   res.render('index', {
     playerCards: playerHand,
     communalCards: communalCards,
-    hand: bestHand.cards
+    hand: bestHand
   })
 });
 

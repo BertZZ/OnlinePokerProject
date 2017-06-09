@@ -156,6 +156,10 @@ HandChecker.prototype.isPair = function() {
   return this.cardsFrequency[0].includes(2)
 }
 
+HandChecker.prototype.highCard = function() {
+   return this.cardsFrequency[2].splice(0, 5)
+}
+
 HandChecker.prototype.sortCards = function(handToSort) {
   var suits = ['s', 'h', 'd', 'c']
   var cards = [ 'A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2' ];
@@ -180,6 +184,7 @@ HandChecker.prototype.getBestHand = function() {
   if (this.isThreeOfAKind()) return handValue('three of a kind', this.threeOfAKind())
   if (this.isTwoPair()) return handValue('two pair', this.twoPair())
   if (this.isPair()) return handValue('pair', this.pair())
+  else return handValue('high card', this.highCard())
 
   function handValue(hand, method) {
     return { name: hand,
