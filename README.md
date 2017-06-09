@@ -33,7 +33,8 @@ Acomplishments
 
 Struggles
 ---------
-1. Working with Angular Js 
+1. Working with Angular Js
+2. Writing the Hand checker function
 
 
 
