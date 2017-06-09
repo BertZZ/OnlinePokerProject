@@ -6,49 +6,53 @@
     <link href="deck.css" rel="stylesheet" type="text/css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="cardPresenter.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
   </head>
 
   <body >
+    <div class="page">
 
-    <div class="text">
-      <h1>Poker: Random Hand Generator!</h1>
-    </div>
-
-
-      <div>
-        <h1>Your Hand</h1>
-        <img id="card_{{ playerCards[0] }}" class="cards"/>
-        <img id="card_{{ playerCards[1] }}" class="cards"/>
+      <div class="text">
+        <h1>Poker: Random Hand Generator!</h1>
       </div>
 
-      <div>
-        <div class="card_container">
-          <h1>Flop</h1>
-          <img id="card_{{ communalCards[0] }}" class="cards"/>
-          <img id="card_{{ communalCards[1] }}" class="cards"/>
-          <img id="card_{{ communalCards[2] }}" class="cards"/>
+        <div>
+          <div class="your_card_container">
+            <h1>Your Hand</h1>
+            <img id="card_{{ playerCards[0] }}" class="cards"/>
+            <img id="card_{{ playerCards[1] }}" class="cards"/>
+          </div>
+
+          <div class="card_container">
+            <h1>Flop</h1>
+            <img id="card_{{ communalCards[0] }}" class="cards"/>
+            <img id="card_{{ communalCards[1] }}" class="cards"/>
+            <img id="card_{{ communalCards[2] }}" class="cards"/>
+          </div>
+
+          <div class="card_container">
+            <h1>Turn</h1>
+            <img id="card_{{ communalCards[3] }}" class="cards"/>
+          </div>
+
+          <div class="card_container">
+            <h1>River</h1>
+            <img id="card_{{ communalCards[4] }}" class="cards"/>
+          </div>
+
         </div>
 
-        <div class="card_container">
-          <h1>Turn</h1>
-          <img id="card_{{ communalCards[3] }}" class="cards"/>
+        <div>
+          <h1>Your Best Hand: {{ hand.name }}</h1>
+          <img id="card_{{ hand.cards[0] }}" class="cards"/>
+          <img id="card_{{ hand.cards[1] }}" class="cards"/>
+          <img id="card_{{ hand.cards[2] }}" class="cards"/>
+          <img id="card_{{ hand.cards[3] }}" class="cards"/>
+          <img id="card_{{ hand.cards[4] }}" class="cards"/>
         </div>
-
-        <div class="card_container">
-          <h1>River</h1>
-          <img id="card_{{ communalCards[4] }}" class="cards"/>
-        </div>
-
       </div>
 
-      <div>
-        <h1>Your Best Hand: {{ hand.name }}</h1>
-        <img id="card_{{ hand.cards[0] }}" class="cards"/>
-        <img id="card_{{ hand.cards[1] }}" class="cards"/>
-        <img id="card_{{ hand.cards[2] }}" class="cards"/>
-        <img id="card_{{ hand.cards[3] }}" class="cards"/>
-        <img id="card_{{ hand.cards[4] }}" class="cards"/>
-      </div>
+      <button onclick="location.reload()">Deal!</button>
 
     </div>
   </body>
