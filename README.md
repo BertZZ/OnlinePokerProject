@@ -14,7 +14,7 @@ node app
 The Project
 -----------
 
-The project started as a slightly ambitious Online poker game. However we quickly realised this would not be possible in a week whilst also writing a poker hand checker from scratch. The app we have built we feel can be used as a learning tool as it's ability  to generate realistic poker hands to assist learning in a risk free environment, alongside other Poker learning reasorces and tutorials would be usefull in assisting with thought exercises and practice. The apps ability to generate full hands quickly means that hundreds of hands can be generated and thought through in a very short amount of time. 
+The project started as a slightly ambitious Online poker game. However we quickly realised this would not be possible in a week whilst also writing a poker hand checker from scratch. The app we have built we feel can be used as a learning tool as it's ability  to generate realistic poker hands to assist learning in a risk free environment, alongside other Poker learning resources and tutorials would be usefull in assisting with thought exercises and practice. The apps ability to generate full hands quickly means that hundreds of hands can be generated and thought through in a very short amount of time. 
 
 Technologies
 ------------
@@ -25,8 +25,6 @@ Testing
 We used Mocha/Chai and Zombie for testing
 
 ![alt text](https://www.imageupload.co.uk/images/2017/06/09/ScreenShot2017-06-09at15.35.08f9b27.png)
-
-INSERT IMAGE OF TESTS PASSING
 
 Acomplishments
 ---------------
